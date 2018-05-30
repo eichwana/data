@@ -1,0 +1,16 @@
+<form id="newForm" runat="server" visible="False">
+        <asp:Panel ID="Panel_Controls" runat="server"></asp:Panel>
+        
+            <asp:Label ID="entryLabelxx" runat="server"></asp:Label>
+            <br />
+        <br />
+        <asp:Label ID="numLabelxx" runat="server"></asp:Label>
+            <asp:TextBox ID="entryBox" runat="server"></asp:TextBox>
+&nbsp;&nbsp;
+            <asp:Button ID="addButton" runat="server" Text="Add another" OnClick="addButton_Click" />
+&nbsp;&nbsp;
+            <asp:Button ID="subButtonxx" runat="server" Text="Done!" />
+            <br />
+
+
+    </form>

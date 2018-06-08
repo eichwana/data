@@ -41,11 +41,18 @@ namespace data
         {
             string userName = nameBox.Text;
             {
-                SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;User Instance=True");
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Windows\source\repos\data\data\App_Data\Database1.mdf;Integrated Security=True;Persist Security Info=True;Column Encryption Setting=Disabled");
                 SqlCommand cmd = new SqlCommand("sp_insert", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("name", userName.Trim());
-          
+                con.Open();
+                int k = cmd.ExecuteNonQuery();
+               // if (k != 0)
+               // {
+                //    lblmsg.Text = "Saved!";
+               // }
+                con.Close();
+
             }
             if (yesButton.Enabled == true)
             {
@@ -67,7 +74,8 @@ namespace data
         protected void insButton_Click(object sender, EventArgs e)
         {
             {
-                SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;User Instance=True");
+                SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Windows\source\repos\data\data\App_Data\Database1.mdf;Integrated Security=True;Persist Security Info=True;Column Encryption Setting=Disabled");
+                
                 SqlCommand cmd = new SqlCommand("sp_insert", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 
@@ -80,8 +88,7 @@ namespace data
                 int k = cmd.ExecuteNonQuery();
                 if (k != 0)
                 {
-                    lblmsg.Text = "Record Inserted Succesfully into the Database";
-                    lblmsg.ForeColor = System.Drawing.Color.CornflowerBlue;
+                    lblmsg.Text = "Saved!";
                 }
                 con.Close();
             }
